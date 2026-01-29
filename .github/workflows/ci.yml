@@ -14,8 +14,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t socialFew2805/cloudserver:${GITHUB_SHA::7} \
-            -t socialFew2805/cloudserver:latest .
+            -t socialfew2805/cloudserver:${GITHUB_SHA::7} \
+            -t socialfew2805/cloudserver:latest .
 
       - name: Login Docker Hub
         run: |
@@ -24,8 +24,8 @@ jobs:
 
       - name: Push image
         run: |
-          docker push socialFew2805/cloudserver:latest
-          docker push socialFew2805/cloudserver:${GITHUB_SHA::7}
+          docker push socialfew2805/cloudserver:latest
+          docker push socialfew2805/cloudserver:${GITHUB_SHA::7}
 #
 #      - name: Trigger deployment
 #        run: |
