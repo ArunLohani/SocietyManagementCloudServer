@@ -14,8 +14,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t arunl/cloudserver:${GITHUB_SHA::7} \
-            -t arunl/cloudserver:latest .
+            -t socialFew2805/cloudserver:${GITHUB_SHA::7} \
+            -t socialFew2805/cloudserver:latest .
 
       - name: Login Docker Hub
         run: |
@@ -24,12 +24,12 @@ jobs:
 
       - name: Push image
         run: |
-          docker push arunl/cloudserver:latest
-          docker push arunl/cloudserver:${GITHUB_SHA::7}
-
-      - name: Trigger deployment
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.DEPLOY_TOKEN }}" \
-            https://api.github.com/repos/ArunLohani/deployment-stack/dispatches \
-            -d '{"event_type":"deploy","client_payload":{"cloud":"latest"}}'
+          docker push socialFew2805/cloudserver:latest
+          docker push socialFew2805/cloudserver:${GITHUB_SHA::7}
+#
+#      - name: Trigger deployment
+#        run: |
+#          curl -X POST \
+#            -H "Authorization: token ${{ secrets.DEPLOY_TOKEN }}" \
+#            https://api.github.com/repos/ArunLohani/deployment-stack/dispatches \
+#            -d '{"event_type":"deploy","client_payload":{"cloud":"latest"}}'
